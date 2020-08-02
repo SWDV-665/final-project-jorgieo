@@ -26,7 +26,10 @@
       </ion-item>
     
       <ion-card-content>
-       Percent Complete: {{item.percentComplete}}
+        <ion-item>
+          <ion-label>Percent Complete:</ion-label>
+          <ion-badge slot="end"><h1>{{item.percentComplete}}</h1></ion-badge>
+        </ion-item>
       </ion-card-content>
     </ion-card>
   </ion-list>

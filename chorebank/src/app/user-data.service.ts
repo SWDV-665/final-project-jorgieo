@@ -17,6 +17,16 @@ export class UserDataService {
     name: "Aria",
     percentComplete: "75%",
     gender: "f"
+  },
+  {
+    name: "Bobby",
+    percentComplete: "15%",
+    gender: "m"
+  },
+  {
+    name: "Cameron",
+    percentComplete: "5%",
+    gender: "f"
   }
 ]
 
