@@ -7,6 +7,16 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
+  <ion-list *ngFor="let item of loadItems()">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{item.name}}</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+       Percent Complete: {{item.percentComplete}}
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 
 </ion-content>

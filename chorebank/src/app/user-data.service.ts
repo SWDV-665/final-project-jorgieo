@@ -6,5 +6,19 @@ import { Injectable } from '@angular/core';
 export class UserDataService {
 
   constructor() { }
-  user = {}
+  
+  user = [
+    {
+    name: "Jorge",
+    percentComplete: "10%"
+  },
+  {
+    name: "Aria",
+    percentComplete: "75%"
+  }
+]
+
+  getUser() {
+    return this.user;
+  }
 }
