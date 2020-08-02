@@ -10,11 +10,13 @@ export class UserDataService {
   user = [
     {
     name: "Jorge",
-    percentComplete: "10%"
+    percentComplete: "10%",
+    gender: "m"
   },
   {
     name: "Aria",
-    percentComplete: "75%"
+    percentComplete: "75%",
+    gender: "f"
   }
 ]
 
