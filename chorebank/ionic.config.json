@@ -1,0 +1,7 @@
+{
+  "name": "chorebank",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
