@@ -7,11 +7,11 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list *ngFor="let item of loadItems()">
+  <ion-list *ngFor="let user of loadUsers()">
     <ion-card>
     
       <ion-item>
-        <ion-avatar *ngIf="item.gender == 'f'; else maleAvatar">
+        <ion-avatar *ngIf="user.gender == 'f'; else maleAvatar">
           <img class="avatar" src="../../assets/avatars/female-avatar.png" alt="">
         </ion-avatar>
   
@@ -21,14 +21,14 @@
           </ion-avatar>
         </ng-template>
         <ion-card-header slot="end">
-          <ion-card-title>{{item.name}}</ion-card-title>
+          <ion-card-title>{{user.name}}</ion-card-title>
         </ion-card-header>
       </ion-item>
     
       <ion-card-content>
         <ion-item>
           <ion-label>Percent Complete:</ion-label>
-          <ion-badge slot="end"><h1>{{item.percentComplete}}</h1></ion-badge>
+          <ion-badge slot="end"><h1>{{user.percentComplete}}</h1></ion-badge>
         </ion-item>
       </ion-card-content>
     </ion-card>

@@ -10,7 +10,7 @@ export class Tab1Page {
 
   constructor(public userData: UserDataService) {}
 
-  loadItems(){
+  loadUsers(){
     return this.userData.getUser();
   }
 
