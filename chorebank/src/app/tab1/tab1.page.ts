@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {UserDataService} from '../../app/user-data.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -8,10 +9,14 @@ import {UserDataService} from '../../app/user-data.service'
 })
 export class Tab1Page {
 
-  constructor(public userData: UserDataService) {}
+  constructor(public userData: UserDataService, public router: Router) {}
 
   loadUsers(){
     return this.userData.getUser();
+  };
+
+  navigate() {
+    this.router.navigate(['user-chores'])
   }
 
 }
