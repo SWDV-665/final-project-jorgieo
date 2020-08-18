@@ -7,12 +7,12 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list *ngFor="let user of loadUsers()">
+  <ion-list *ngFor="let user of loadUsers(); index as i">
     <ion-card>
     
       <ion-item>
         <ion-avatar *ngIf="user.gender == 'f'; else maleAvatar">
-          <img class="avatar" src="../../assets/avatars/female-avatar.png" alt="">
+          <img class="avatar" src="../../assets/avatars/spanish-female-avatar.png" alt="">
         </ion-avatar>
   
         <ng-template #maleAvatar>
