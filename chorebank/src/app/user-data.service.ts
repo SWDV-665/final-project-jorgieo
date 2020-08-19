@@ -9,26 +9,74 @@ export class UserDataService {
   
   user = [
     {
-    name: "Jorge",
-    percentComplete: "10%",
-    gender: "m"
-  },
-  {
-    name: "Aria",
-    percentComplete: "75%",
-    gender: "f"
-  },
-  {
-    name: "Bobby",
-    percentComplete: "15%",
-    gender: "m"
-  },
-  {
-    name: "Cameron",
-    percentComplete: "5%",
-    gender: "f"
-  }
-]
+      id: 1,
+      name: "Jorge",
+      gender: "m",
+      chores: [
+        {
+          title: "Wash Dishes",
+          complete: false,
+          verified: false
+        },
+        {
+          title: "Walk Dogs",
+          complete: false,
+          verified: false
+        }
+      ],
+    },
+    {
+      id: 2,
+      name: "Aria",
+      gender: "f",
+      chores: [
+        {
+          title: "Pick Up Toys",
+          complete: false,
+          verified: false
+        },
+        {
+          title: "Brush Teeth",
+          complete: false,
+          verified: false
+        }
+      ],
+    },
+    {
+      id: 3,
+      name: "Tatyana",
+      gender: "f",
+      chores: [
+        {
+          title: "Wash Clothes",
+          complete: false,
+          verified: false
+        },
+        {
+          title: "Clean Room",
+          complete: false,
+          verified: false
+        }
+      ],
+    },
+    {
+      id: 4,
+      name: "Cameron",
+      gender: "m",
+      chores: [
+        {
+          title: "Feed Dogs",
+          complete: false,
+          verified: false
+        },
+        {
+          title: "Vacuum Carpet",
+          complete: false,
+          verified: false
+        }
+      ],
+    }
+  ]
 
   getUser() {
     return this.user;
