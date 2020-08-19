@@ -115,6 +115,6 @@ export class UserDataService {
     // console.log("num chores: " + numChores)
     // console.log("num complete: " + numComplete)
 
-    return {name:user.name, gender:user.gender, choreList:choreList, percentComplete:percentComplete}
+    return {id:user.id, name:user.name, gender:user.gender, choreList:choreList, percentComplete:percentComplete}
   }
 }
