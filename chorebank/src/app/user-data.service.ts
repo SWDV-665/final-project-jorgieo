@@ -7,7 +7,7 @@ export class UserDataService {
 
   constructor() { }
   
-  user = [
+  users = [
     {
       id: 1,
       name: "Jorge",
@@ -15,7 +15,7 @@ export class UserDataService {
       chores: [
         {
           title: "Wash Dishes",
-          complete: false,
+          complete: true,
           verified: false
         },
         {
@@ -32,8 +32,8 @@ export class UserDataService {
       chores: [
         {
           title: "Pick Up Toys",
-          complete: false,
-          verified: false
+          complete: true,
+          verified: true
         },
         {
           title: "Brush Teeth",
@@ -54,7 +54,12 @@ export class UserDataService {
         },
         {
           title: "Clean Room",
-          complete: false,
+          complete: true,
+          verified: true
+        },
+        {
+          title: "Clean Bathroom",
+          complete: true,
           verified: false
         }
       ],
@@ -73,12 +78,43 @@ export class UserDataService {
           title: "Vacuum Carpet",
           complete: false,
           verified: false
+        },
+        {
+          title: "Straighten Family Room",
+          complete: true,
+          verified: false
+        },
+        {
+          title: "Put Shoes Away",
+          complete: true,
+          verified: false
         }
       ],
     }
   ]
 
-  getUser() {
-    return this.user;
+  getUsers() {
+    return this.users;
+  }
+
+  getUserStats(user){
+    var numChores = user.chores.length;
+    var choreList = [];
+    var numComplete = 0;
+    user.chores.forEach(chore => {
+      choreList.push(chore.title)
+      if (chore.complete){
+        numComplete++
+      };
+    });
+
+    var percentComplete = ((numComplete / numChores) * 100.0).toFixed(0);
+
+    // console.log("user: " + user.name)
+    // console.log("chores: " + choreList)
+    // console.log("num chores: " + numChores)
+    // console.log("num complete: " + numComplete)
+
+    return {name:user.name, gender:user.gender, choreList:choreList, percentComplete:percentComplete}
   }
 }
