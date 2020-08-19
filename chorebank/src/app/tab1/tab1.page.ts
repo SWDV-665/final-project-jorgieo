@@ -15,7 +15,7 @@ export class Tab1Page {
     return this.userData.getUser();
   };
 
-  navigate() {
+  navigate(name) {
     this.router.navigate(['user-chores'])
   }
 

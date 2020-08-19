@@ -8,7 +8,7 @@
 
 <ion-content [fullscreen]="true">
   <ion-list *ngFor="let user of loadUsers(); index as i">
-    <ion-card (click)="navigate()">
+    <ion-card (click)="navigate(user.name)">
     
       <ion-item>
         <ion-avatar *ngIf="user.gender == 'f'; else maleAvatar">
