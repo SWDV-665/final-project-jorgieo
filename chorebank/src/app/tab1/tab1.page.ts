@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserDataService} from '../../app/user-data.service'
 import { Router } from '@angular/router';
-import { element } from 'protractor';
+
 
 @Component({
   selector: 'app-tab1',
