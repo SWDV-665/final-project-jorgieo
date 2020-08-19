@@ -108,7 +108,7 @@ export class UserDataService {
       };
     });
 
-    var percentComplete = ((numComplete / numChores) * 100.0).toFixed(0);
+    var percentComplete = ((numComplete / numChores) * 100.0).toFixed(0).toString() + "%";
 
     // console.log("user: " + user.name)
     // console.log("chores: " + choreList)
