@@ -37,4 +37,8 @@ export class UserChoresPage {
     console.log("Chore Verified")
   }
 
+  removeChore(chore) {
+    this.userData.removeChore(chore, this.slugID)
+  }
+
 }

@@ -122,7 +122,17 @@ export class UserDataService {
   }
 
   addChore(name, id){
-    this.users.find(user => user.id === id).chores.push({title: name, complete:false, verified:false})
+    this.getUserByID(id).chores.push({title: name, complete:false, verified:false})
+  }
+
+  removeChore(name, id) {
+    let list = this.getUserByID(id).chores;
+    for(var index = 0; index < list.length; index++) {
+      if (list[index].title === name) {
+        list.splice(index, 1)
+      };
+    };
+    // console.log(this.getUserChores(this.getUserByID(id)))
   }
 
   setChoreComplete(title, id) {
