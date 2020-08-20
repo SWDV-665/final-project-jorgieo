@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserDataService } from '../user-data.service';
+import { InputDialogService } from '../input-dialog.service';
 
 @Component({
   selector: 'app-user-chores',
@@ -13,7 +14,7 @@ export class UserChoresPage implements OnInit {
   private selectedUser:object;
   private selectedUserChores:any;
 
-  constructor(private route:ActivatedRoute, private userData:UserDataService) { }
+  constructor(private route:ActivatedRoute, private userData:UserDataService, private inputDialog: InputDialogService) { }
 
   ngOnInit() {
     this.slug = this.route.snapshot.paramMap.get("id")
@@ -27,7 +28,7 @@ export class UserChoresPage implements OnInit {
   }
 
   addChore(){
-    console.log("add a chore")
+    this.inputDialog.showDialog()
   }
 
 }
