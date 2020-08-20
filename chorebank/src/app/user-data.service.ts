@@ -15,7 +15,7 @@ export class UserDataService {
       chores: [
         {
           title: "Wash Dishes",
-          complete: true,
+          complete: false,
           verified: false
         },
         {
@@ -32,8 +32,8 @@ export class UserDataService {
       chores: [
         {
           title: "Pick Up Toys",
-          complete: true,
-          verified: true
+          complete: false,
+          verified: false
         },
         {
           title: "Brush Teeth",
@@ -54,12 +54,12 @@ export class UserDataService {
         },
         {
           title: "Clean Room",
-          complete: true,
-          verified: true
+          complete: false,
+          verified: false
         },
         {
           title: "Clean Bathroom",
-          complete: true,
+          complete: false,
           verified: false
         }
       ],
@@ -81,12 +81,12 @@ export class UserDataService {
         },
         {
           title: "Straighten Family Room",
-          complete: true,
+          complete: false,
           verified: false
         },
         {
           title: "Put Shoes Away",
-          complete: true,
+          complete: false,
           verified: false
         }
       ],
@@ -95,6 +95,10 @@ export class UserDataService {
 
   getUsers() {
     return this.users;
+  }
+
+  getUserByID(id) {
+    return this.users.find(user => user.id === id)
   }
 
   getUserStats(user){
@@ -129,5 +133,11 @@ export class UserDataService {
 
   addChore(name, id){
     this.users.find(user => user.id === id).chores.push({title: name, complete:false, verified:false})
+  }
+
+  setChoreComplete(title, id) {
+    let user = this.getUserByID(id);
+    let completedChore = user.chores.find(chore => chore.title === title);
+    completedChore.complete = true;
   }
 }
