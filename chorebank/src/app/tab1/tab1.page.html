@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list *ngFor="let user of userStats">
+  <ion-list *ngFor="let user of loadUsers()">
     <ion-card (click)="navigate(user.id)">
     
       <ion-item>
@@ -28,7 +28,7 @@
       <ion-card-content>
         <ion-item>
           <ion-label>Percent Complete:</ion-label>
-          <ion-badge slot="end"><h1>{{user.percentComplete}}</h1></ion-badge>
+          <ion-badge slot="end"><h1>{{completePercentage(user)}}</h1></ion-badge>
         </ion-item>
       </ion-card-content>
     </ion-card>

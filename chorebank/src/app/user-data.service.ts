@@ -101,25 +101,15 @@ export class UserDataService {
     return this.users.find(user => user.id === id)
   }
 
-  getUserStats(user){
+  getPercentComplete(user) {
     let numChores = user.chores.length;
-    let choreList = [];
     let numComplete = 0;
     user.chores.forEach(chore => {
-      choreList.push(chore.title)
       if (chore.complete){
         numComplete++
       };
     });
-
-    let percentComplete = ((numComplete / numChores) * 100.0).toFixed(0).toString() + "%";
-
-    // console.log("user: " + user.name)
-    // console.log("chores: " + choreList)
-    // console.log("num chores: " + numChores)
-    // console.log("num complete: " + numComplete)
-
-    return {id:user.id, name:user.name, gender:user.gender, choreList:choreList, percentComplete:percentComplete}
+    return ((numComplete / numChores) * 100.0).toFixed(0).toString() + "%";
   }
 
   getUserChores(user){
