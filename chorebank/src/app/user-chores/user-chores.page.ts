@@ -19,7 +19,7 @@ export class UserChoresPage {
 
   slugID = this.route.snapshot.paramMap.get("id")
     
-  selectedUser = this.userData.getUsers().find(user => user.id === this.slugID)
+  selectedUser = this.userData.getUserByID(this.slugID)
 
   getChores(){
     return this.userData.getUserChores(this.selectedUser)
