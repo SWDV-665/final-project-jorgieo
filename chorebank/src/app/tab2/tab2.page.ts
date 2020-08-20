@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { InputDialogService } from '../input-dialog.service';
+import { UserDataService } from '../user-data.service';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +9,10 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor(private inputDialog:InputDialogService, private userData:UserDataService) {}
 
+  loadUsers() {
+    return this.userData.getUsers()
+  }
+  
 }
