@@ -30,10 +30,9 @@ export class InputDialogService {
           }
         }, {
           text: 'Add',
-          handler: (item) => {
+          handler: (name) => {
             // add a function in the user data service to add chores
-            console.log('adding chore')
-            console.log(this.userData.getUserChores(this.userData.getUsers().find(user => user.id === id)))
+            this.userData.addChore(name.title, id)
           }
         }
       ]
