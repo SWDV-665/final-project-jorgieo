@@ -9,7 +9,7 @@ export class UserDataService {
   
   users = [
     {
-      id: 1,
+      id: "1",
       name: "Jorge",
       gender: "m",
       chores: [
@@ -26,7 +26,7 @@ export class UserDataService {
       ],
     },
     {
-      id: 2,
+      id: "2",
       name: "Aria",
       gender: "f",
       chores: [
@@ -43,7 +43,7 @@ export class UserDataService {
       ],
     },
     {
-      id: 3,
+      id: "3",
       name: "Tatyana",
       gender: "f",
       chores: [
@@ -65,7 +65,7 @@ export class UserDataService {
       ],
     },
     {
-      id: 4,
+      id: "4",
       name: "Cameron",
       gender: "m",
       chores: [

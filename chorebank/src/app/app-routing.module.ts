@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: 'user-chores',
+    path: 'user-chores/:id',
     loadChildren: () => import('./user-chores/user-chores.module').then( m => m.UserChoresPageModule)
   }
 ];

@@ -25,9 +25,8 @@ export class Tab1Page implements OnInit{
     });
   }
  
-  navigate(user) {
-    this.router.navigate(['user-chores'], {queryParams:user.id})
-    console.log(user)
+  navigate(id) {
+    this.router.navigate(['user-chores', id])
   }
 
 }
