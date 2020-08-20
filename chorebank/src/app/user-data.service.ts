@@ -140,4 +140,10 @@ export class UserDataService {
     let completedChore = user.chores.find(chore => chore.title === title);
     completedChore.complete = true;
   }
+
+  setChoreVerified(title, id) {
+    let user = this.getUserByID(id);
+    let completedChore = user.chores.find(chore => chore.title === title);
+    completedChore.verified = true;
+  }
 }

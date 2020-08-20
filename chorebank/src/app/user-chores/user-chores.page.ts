@@ -33,8 +33,8 @@ export class UserChoresPage {
     this.userData.setChoreComplete(chore, this.slugID);
   }
 
-  markVerified(){
-    console.log("Chore Verified")
+  markVerified(chore){
+    this.userData.setChoreVerified(chore, this.slugID);
   }
 
   removeChore(chore) {
