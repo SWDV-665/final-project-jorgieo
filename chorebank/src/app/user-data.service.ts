@@ -128,8 +128,6 @@ export class UserDataService {
   }
 
   addChore(name, id){
-    console.log(name)
     this.users.find(user => user.id === id).chores.push({title: name, complete:false, verified:false})
-    console.log(this.users)
   }
 }
