@@ -10,25 +10,22 @@ import { InputDialogService } from '../input-dialog.service';
 })
 export class UserChoresPage implements OnInit {
 
-  private slug: string;
+  private slugID: string;
   private selectedUser:object;
   private selectedUserChores:any;
 
   constructor(private route:ActivatedRoute, private userData:UserDataService, private inputDialog: InputDialogService) { }
 
   ngOnInit() {
-    this.slug = this.route.snapshot.paramMap.get("id")
-    console.log(this.slug)
+    this.slugID = this.route.snapshot.paramMap.get("id")
     
-    this.selectedUser = this.userData.getUsers().find(user => user.id === this.slug)
-    console.log(this.selectedUser)
+    this.selectedUser = this.userData.getUsers().find(user => user.id === this.slugID)
 
     this.selectedUserChores = this.userData.getUserChores(this.selectedUser)
-    console.log(this.selectedUserChores)
   }
 
   addChore(){
-    this.inputDialog.showDialog(this.slug)
+    this.inputDialog.showDialog(this.slugID)
   }
 
 }
