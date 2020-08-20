@@ -15,7 +15,7 @@
     </ion-fab-button>
   </ion-fab>
 
-  <ion-item *ngFor="let chore of selectedUserChores">
+  <ion-item *ngFor="let chore of getChores()">
     <ion-item-sliding>
       <ion-item>
         <ion-label>{{chore}}</ion-label>

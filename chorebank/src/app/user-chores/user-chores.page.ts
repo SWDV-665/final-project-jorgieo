@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserDataService } from '../user-data.service';
 import { InputDialogService } from '../input-dialog.service';
@@ -8,22 +8,23 @@ import { InputDialogService } from '../input-dialog.service';
   templateUrl: './user-chores.page.html',
   styleUrls: ['./user-chores.page.scss'],
 })
-export class UserChoresPage implements OnInit {
+export class UserChoresPage {
 
-  private slugID: string;
-  private selectedUser:object;
-  private selectedUserChores:any;
+  // private slugID: string;
+  // private selectedUser:object;
+
 
   constructor(private route:ActivatedRoute, private userData:UserDataService, private inputDialog: InputDialogService) { }
 
-  ngOnInit() {
-    this.slugID = this.route.snapshot.paramMap.get("id")
+
+  slugID = this.route.snapshot.paramMap.get("id")
     
-    this.selectedUser = this.userData.getUsers().find(user => user.id === this.slugID)
+  selectedUser = this.userData.getUsers().find(user => user.id === this.slugID)
 
-    this.selectedUserChores = this.userData.getUserChores(this.selectedUser)
+  getChores(){
+    return this.userData.getUserChores(this.selectedUser)
   }
-
+  
   addChore(){
     this.inputDialog.showDialog(this.slugID)
   }
