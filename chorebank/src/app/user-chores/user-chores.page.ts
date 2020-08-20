@@ -26,4 +26,8 @@ export class UserChoresPage implements OnInit {
     console.log(this.selectedUserChores)
   }
 
+  addChore(){
+    console.log("add a chore")
+  }
+
 }
