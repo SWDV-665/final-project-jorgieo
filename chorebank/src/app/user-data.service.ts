@@ -98,9 +98,9 @@ export class UserDataService {
   }
 
   getUserStats(user){
-    var numChores = user.chores.length;
-    var choreList = [];
-    var numComplete = 0;
+    let numChores = user.chores.length;
+    let choreList = [];
+    let numComplete = 0;
     user.chores.forEach(chore => {
       choreList.push(chore.title)
       if (chore.complete){
@@ -108,7 +108,7 @@ export class UserDataService {
       };
     });
 
-    var percentComplete = ((numComplete / numChores) * 100.0).toFixed(0).toString() + "%";
+    let percentComplete = ((numComplete / numChores) * 100.0).toFixed(0).toString() + "%";
 
     // console.log("user: " + user.name)
     // console.log("chores: " + choreList)
@@ -116,5 +116,14 @@ export class UserDataService {
     // console.log("num complete: " + numComplete)
 
     return {id:user.id, name:user.name, gender:user.gender, choreList:choreList, percentComplete:percentComplete}
+  }
+
+  getUserChores(user){
+
+    let choreList = []
+    user.chores.forEach(choreObj => {
+      choreList.push(choreObj.title)
+    })
+    return choreList
   }
 }

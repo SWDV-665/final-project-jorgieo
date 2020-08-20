@@ -23,12 +23,12 @@ export class UserChoresPage implements OnInit {
     this.selectedUser = this.userData.getUsers().find(user => user.id === this.slug)
     console.log(this.selectedUser)
 
-    this.selectedUserChores = this.userData.getUserStats(this.selectedUser).choreList
+    this.selectedUserChores = this.userData.getUserChores(this.selectedUser)
     console.log(this.selectedUserChores)
   }
 
   addChore(){
-    this.inputDialog.showDialog()
+    this.inputDialog.showDialog(this.slug)
   }
 
 }

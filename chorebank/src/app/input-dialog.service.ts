@@ -9,7 +9,7 @@ export class InputDialogService {
 
   constructor(private alertController: AlertController, private userData: UserDataService) { }
 
-  async showDialog() {
+  async showDialog(id) {
     const alert = await this.alertController.create({
       cssClass: 'input-dialog',
       header: 'Add A Chore',
@@ -33,6 +33,7 @@ export class InputDialogService {
           handler: (item) => {
             // add a function in the user data service to add chores
             console.log('Chore added')
+            this.userData.getUserChores(this.userData.getUsers().find(user => user.id === id))
           }
         }
       ]
