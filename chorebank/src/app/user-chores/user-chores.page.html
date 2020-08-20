@@ -21,7 +21,17 @@
         <ion-label>{{chore}}</ion-label>
       </ion-item>
       <ion-item-options side="end">
-        <ion-item-option (click)="unread(item)">Unread</ion-item-option>
+
+        <ion-button shape="round" color="success" (click)="markComplete(chore)">
+          <ion-icon name="checkmark-outline"></ion-icon>
+          <ion-label>Complete</ion-label>
+        </ion-button>
+        
+        <ion-button shape="round" color="warning" (click)="markVerified(chore)">
+          <ion-icon name="checkmark-done-outline"></ion-icon>
+          <ion-label>Verify</ion-label>
+        </ion-button>
+
       </ion-item-options>
     </ion-item-sliding>
   </ion-item>

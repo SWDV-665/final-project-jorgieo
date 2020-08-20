@@ -29,4 +29,12 @@ export class UserChoresPage {
     this.inputDialog.showDialog(this.slugID)
   }
 
+  markComplete(chore){
+    this.userData.setChoreComplete(chore, this.slugID);
+  }
+
+  markVerified(){
+    console.log("Chore Verified")
+  }
+
 }
