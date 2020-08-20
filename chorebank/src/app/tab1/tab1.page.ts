@@ -24,4 +24,8 @@ export class Tab1Page{
     return this.userData.getPercentComplete(user)
   }
 
+  getUnverifiedChores(id) {
+    return this.userData.getUnverifiedChores(id)
+  } 
+
 }

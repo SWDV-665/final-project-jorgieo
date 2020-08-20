@@ -146,4 +146,15 @@ export class UserDataService {
     let completedChore = user.chores.find(chore => chore.title === title);
     completedChore.verified = true;
   }
+
+  getUnverifiedChores(id) {
+    let numCompleteUnverified = 0;
+    let user = this.getUserByID(id);
+    user.chores.forEach(chore => {
+      if (chore.complete && !chore.verified) {
+        numCompleteUnverified++
+      }
+    })
+    return numCompleteUnverified
+  }
 }
