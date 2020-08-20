@@ -3,24 +3,28 @@
     <ion-title>
       Manage Users
     </ion-title>
+    <ion-button shape="round" slot="end" color="success">
+      <ion-icon name="add-circle-outline"></ion-icon>
+    </ion-button>
   </ion-toolbar>
-  <ion-fab vertical="top" horizontal="end">
-    <ion-fab-button (click)="addUser()">
-      <ion-icon name="add-outline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-list *ngFor="let user of loadUsers()">
     <ion-item>
-      <ion-label>Name: {{user.name}}</ion-label>
-      <ion-label>Gender: {{user.gender}}</ion-label>
+      <ion-label>
+        <h3>{{user.name}}</h3>
+      </ion-label>
+      <ion-button shape="round" color="warning">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+      <ion-button shape="round" color="danger">
+        <ion-icon name="trash-bin-outline"></ion-icon>
+      </ion-button>
     </ion-item>
-    <ion-item lines="none">
-      <ion-button shape="round" fill="outline" slot="start" size="default">Edit</ion-button>
-      <ion-button shape="round" fill="outline" slot="end" size="default">Remove</ion-button>
-    </ion-item>
+
+
+
   </ion-list>
   
 </ion-content>
