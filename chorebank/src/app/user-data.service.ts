@@ -95,12 +95,11 @@ export class UserDataService {
 
   addUser(name:string, gender:string) {
     let newUser = {};
-    let gen = gender.toLocaleLowerCase()[0]
     this.users.push(
       {
         id: "5",
         name: name,
-        gender: gen,
+        gender: gender,
         chores: [],
       })
   }

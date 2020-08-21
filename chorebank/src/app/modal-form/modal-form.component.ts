@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { UserDataService } from '../user-data.service';
 
 @Component({
   selector: 'app-modal-form',
@@ -7,8 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalController: ModalController, private userData:UserDataService) { }
 
   ngOnInit() {}
+
+  selectedGender: string = "m";
+  userName:string;
+  nameIsEmpty:boolean;
+
+  async cancelModal() {
+    await this.modalController.dismiss()
+  }
+
+  async addUser() {
+    if (!this.userName) {
+      this.nameIsEmpty = true
+      return
+    }
+    console.log("User added",this.userName, this.selectedGender)
+    this.userData.addUser(this.userName, this.selectedGender)
+    await this.modalController.dismiss()
+  }
+
+  setSelectedGender(event) {
+    this.selectedGender = event.detail.value;
+  }
 
 }

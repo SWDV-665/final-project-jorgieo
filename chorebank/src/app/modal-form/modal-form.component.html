@@ -1,3 +1,41 @@
-<p>
-  modal-form works!
-</p>
+<!-- <ion-header>
+  <ion-toolbar>
+
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+  <ion-card>
+    <form>
+        <ion-item>
+          <ion-label position="floating" >Name</ion-label>
+          <ion-input placeholder="Name" name="userName" [(ngModel)]="userName" required></ion-input>
+        </ion-item>
+        <div class="ion-text-center" *ngIf="nameIsEmpty"><p>Must enter a Name!</p></div>
+      
+        <ion-list>
+          <ion-radio-group value="m" (ionChange)="setSelectedGender($event)">
+            <ion-list-header>
+              <ion-label>Gender</ion-label>
+            </ion-list-header>
+        
+            <ion-item>
+              <ion-label>Male</ion-label>
+              <ion-radio slot="start" value="m"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label>Female</ion-label>
+              <ion-radio slot="start" value="f"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      
+      <ion-item>
+        <ion-button (click)="cancelModal()" slot="start">Cancel</ion-button>
+        <ion-button (click)="addUser()" slot="end">Add</ion-button>
+      </ion-item>
+
+    </form>
+  </ion-card>
+</ion-content>

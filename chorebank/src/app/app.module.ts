@@ -10,11 +10,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import {UserDataService} from '../app/user-data.service'
+import { FormsModule } from '@angular/forms';
+import { ModalFormComponent } from './modal-form/modal-form.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ModalFormComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule],
   providers: [
     StatusBar,
     SplashScreen,
