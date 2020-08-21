@@ -16,7 +16,7 @@ export class Tab2Page {
   }
 
   addUserDialog() {
-    this.inputDialog.showUserDialog()
+    
   }
 
 }

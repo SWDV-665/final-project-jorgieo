@@ -41,41 +41,41 @@ export class InputDialogService {
     await alert.present();
   };
 
-  async showUserDialog() {
-    const alert = await this.alertController.create({
-      cssClass: 'input-dialog',
-      header: 'Add A User',
-      inputs: [
-        {
-          name: 'title',
-          type: 'text',
-          placeholder: 'Name'
-        },
-        {
-          name: 'gender',
-          type: 'text',
-          placeholder: 'Gender',
-        }
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: () => {
-            console.log('Confirm Cancel');
-          }
-        }, {
-          text: 'Add',
-          handler: (name) => {
-            // add a function in the user data service to add chores
-            this.userData.addUser(name.title, name.gender)
-          }
-        }
-      ]
-    });
+  // async showUserDialog() {
+  //   const alert = await this.alertController.create({
+  //     cssClass: 'input-dialog',
+  //     header: 'Add A User',
+  //     inputs: [
+  //       {
+  //         name: 'title',
+  //         type: 'text',
+  //         placeholder: 'Name'
+  //       },
+  //       {
+  //         name: 'gender',
+  //         type: 'text',
+  //         placeholder: 'Gender',
+  //       }
+  //     ],
+  //     buttons: [
+  //       {
+  //         text: 'Cancel',
+  //         role: 'cancel',
+  //         cssClass: 'secondary',
+  //         handler: () => {
+  //           console.log('Confirm Cancel');
+  //         }
+  //       }, {
+  //         text: 'Add',
+  //         handler: (name) => {
+  //           // add a function in the user data service to add chores
+  //           this.userData.addUser(name.title, name.gender)
+  //         }
+  //       }
+  //     ]
+  //   });
 
-    await alert.present();
-  };
+  //   await alert.present();
+  // };
 
 }
