@@ -93,6 +93,18 @@ export class UserDataService {
     }
   ]
 
+  addUser(name:string, gender:string) {
+    let newUser = {};
+    let gen = gender.toLocaleLowerCase()[0]
+    this.users.push(
+      {
+        id: "5",
+        name: name,
+        gender: gen,
+        chores: [],
+      })
+  }
+
   getUsers() {
     return this.users;
   }
@@ -103,13 +115,16 @@ export class UserDataService {
 
   getPercentComplete(user) {
     let numChores = user.chores.length;
+    if (numChores === 0) {
+      return "0"
+    }
     let numComplete = 0;
     user.chores.forEach(chore => {
       if (chore.complete){
         numComplete++
       };
     });
-    return ((numComplete / numChores) * 100.0).toFixed(0).toString() + "%";
+    return ((numComplete / numChores) * 100.0).toFixed(0).toString();
   }
 
   getUserChores(user){

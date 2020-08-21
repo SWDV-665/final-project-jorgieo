@@ -14,5 +14,9 @@ export class Tab2Page {
   loadUsers() {
     return this.userData.getUsers()
   }
-  
+
+  addUserDialog() {
+    this.inputDialog.showUserDialog()
+  }
+
 }
