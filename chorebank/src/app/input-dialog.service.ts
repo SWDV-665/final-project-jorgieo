@@ -18,6 +18,11 @@ export class InputDialogService {
           name: 'title',
           type: 'text',
           placeholder: 'Title'
+        },
+        {
+          name: 'value',
+          type: 'number',
+          placeholder: 'Value'
         }
       ],
       buttons: [
