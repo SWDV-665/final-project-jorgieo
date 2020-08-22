@@ -27,7 +27,7 @@
           <ion-icon name="checkmark-outline"></ion-icon>
         </ion-button>
         
-        <ion-button shape="round" color="warning" (click)="markVerified(chore)" size="small">
+        <ion-button *ngIf="chore.complete" shape="round" color="warning" (click)="markVerified(chore)" size="small">
           <ion-icon name="checkmark-done-outline"></ion-icon>
         </ion-button>
 
