@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserDataService } from '../user-data.service';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  constructor(private userData:UserDataService) {}
+
+  loadUsers() {
+    return this.userData.getUsers()
+  }
+
+  cashOut() {
+    console.log("Cha-ching!")
+  }
 
 }

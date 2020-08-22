@@ -7,5 +7,33 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-list *ngFor="let user of loadUsers()">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Balance</ion-card-subtitle>
+        <ion-card-title>{{user.name}}</ion-card-title>
+      </ion-card-header>
 
+      <div class="balance-block">
+        <p class="dollar-sign">$</p>
+        <h1 class="balance-amount">{{user.balance}}</h1>
+      </div>
+
+      <!-- Using ion-grid to center ion-button within ion-item -->
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col></ion-col>
+            <ion-col>
+              <ion-button (click)="cashOut()">
+                Cashout
+              </ion-button>
+            </ion-col>
+            <ion-col></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+    </ion-card>
+  </ion-list>
 </ion-content>
