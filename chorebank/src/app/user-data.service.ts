@@ -155,10 +155,10 @@ export class UserDataService {
     this.getUserByID(id).chores.push({title: name, value: 0, complete:false, verified:false})
   }
 
-  removeChore(name, id) {
+  removeChore(choreObj, id) {
     let list = this.getUserByID(id).chores;
     for(var index = 0; index < list.length; index++) {
-      if (list[index].title === name) {
+      if (list[index].title === choreObj.title) {
         list.splice(index, 1)
       };
     };
