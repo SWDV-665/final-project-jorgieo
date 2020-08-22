@@ -18,7 +18,8 @@
   <ion-item *ngFor="let chore of getChores()">
     <ion-item-sliding>
       <ion-item detail>
-        <ion-label>{{chore}}</ion-label>
+        <ion-label>{{chore.title}}</ion-label>
+        <ion-label>{{chore.value}}</ion-label>
       </ion-item>
       <ion-item-options side="end">
 

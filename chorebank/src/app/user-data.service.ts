@@ -144,11 +144,11 @@ export class UserDataService {
 
   getUserChores(user){
 
-    let choreList = []
-    user.chores.forEach(choreObj => {
-      choreList.push(choreObj.title)
-    })
-    return choreList
+    // let choreList = []
+    // user.chores.forEach(choreObj => {
+    //   choreList.push(choreObj.title)
+    // })
+    return user.chores
   }
 
   addChore(name, id){
@@ -165,15 +165,15 @@ export class UserDataService {
     // console.log(this.getUserChores(this.getUserByID(id)))
   }
 
-  setChoreComplete(title, id) {
+  setChoreComplete(choreObj, id) {
     let user = this.getUserByID(id);
-    let completedChore = user.chores.find(chore => chore.title === title);
+    let completedChore = user.chores.find(chore => chore.title === choreObj.title);
     completedChore.complete = true;
   }
 
-  setChoreVerified(title, id) {
+  setChoreVerified(choreObj, id) {
     let user = this.getUserByID(id);
-    let completedChore = user.chores.find(chore => chore.title === title);
+    let completedChore = user.chores.find(chore => chore.title === choreObj.title);
     completedChore.verified = true;
   }
 
