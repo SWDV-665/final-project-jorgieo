@@ -37,6 +37,7 @@ export class UserChoresPage {
     this.userData.setChoreVerified(chore, this.slugID);
     let choreStatus = "Verified"
     this.showToast(choreStatus);
+    this.userData.addToBank(chore, this.slugID);
   }
 
   removeChore(chore) {

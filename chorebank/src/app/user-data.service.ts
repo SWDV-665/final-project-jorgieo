@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { computeStackId } from '@ionic/angular/directives/navigation/stack-utils';
 
 @Injectable({
   providedIn: 'root'
@@ -16,13 +17,13 @@ export class UserDataService {
       chores: [
         {
           title: "Wash Dishes",
-          value: 0,
+          value: 2,
           complete: false,
           verified: false
         },
         {
           title: "Walk Dogs",
-          value: 0,
+          value: 5,
           complete: false,
           verified: false
         }
@@ -36,13 +37,13 @@ export class UserDataService {
       chores: [
         {
           title: "Pick Up Toys",
-          value: 0,
+          value: 2,
           complete: false,
           verified: false
         },
         {
           title: "Brush Teeth",
-          value: 0,
+          value: 3,
           complete: false,
           verified: false
         }
@@ -56,19 +57,19 @@ export class UserDataService {
       chores: [
         {
           title: "Wash Clothes",
-          value: 0,
+          value: 5,
           complete: false,
           verified: false
         },
         {
           title: "Clean Room",
-          value: 0,
+          value: 5,
           complete: false,
           verified: false
         },
         {
           title: "Clean Bathroom",
-          value: 0,
+          value: 10,
           complete: false,
           verified: false
         }
@@ -82,25 +83,25 @@ export class UserDataService {
       chores: [
         {
           title: "Feed Dogs",
-          value: 0,
+          value: 5,
           complete: false,
           verified: false
         },
         {
           title: "Vacuum Carpet",
-          value: 0,
+          value: 10,
           complete: false,
           verified: false
         },
         {
           title: "Straighten Family Room",
-          value: 0,
+          value: 10,
           complete: false,
           verified: false
         },
         {
           title: "Put Shoes Away",
-          value: 0,
+          value: 2,
           complete: false,
           verified: false
         }
@@ -109,7 +110,6 @@ export class UserDataService {
   ]
 
   addUser(name:string, gender:string) {
-    let newUser = {};
     this.users.push(
       {
         id: "5",
@@ -143,16 +143,12 @@ export class UserDataService {
   }
 
   getUserChores(user){
-
-    // let choreList = []
-    // user.chores.forEach(choreObj => {
-    //   choreList.push(choreObj.title)
-    // })
     return user.chores
   }
 
-  addChore(name, id){
-    this.getUserByID(id).chores.push({title: name, value: 0, complete:false, verified:false})
+  addChore(name:string, value:any, id:number){
+    this.getUserByID(id).chores.push({title: name, value: parseInt(value), complete:false, verified:false})
+    // console.log(this.getUserByID(id))
   }
 
   removeChore(choreObj, id) {
@@ -186,5 +182,12 @@ export class UserDataService {
       }
     })
     return numCompleteUnverified
+  }
+
+  addToBank(choreObj, id) {
+    let user = this.getUserByID(id);
+    let verifiedChore = user.chores.find(chore => chore.title === choreObj.title);
+    user.balance += verifiedChore.value;
+    this.removeChore(verifiedChore, id);
   }
 }

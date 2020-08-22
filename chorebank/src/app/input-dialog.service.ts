@@ -37,7 +37,7 @@ export class InputDialogService {
           text: 'Add',
           handler: (name) => {
             // add a function in the user data service to add chores
-            this.userData.addChore(name.title, id)
+            this.userData.addChore(name.title, name.value, id)
           }
         }
       ]
