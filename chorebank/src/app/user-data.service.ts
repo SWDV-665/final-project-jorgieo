@@ -12,14 +12,17 @@ export class UserDataService {
       id: "1",
       name: "Jorge",
       gender: "m",
+      balance: 0,
       chores: [
         {
           title: "Wash Dishes",
+          value: 0,
           complete: false,
           verified: false
         },
         {
           title: "Walk Dogs",
+          value: 0,
           complete: false,
           verified: false
         }
@@ -29,14 +32,17 @@ export class UserDataService {
       id: "2",
       name: "Aria",
       gender: "f",
+      balance: 0,
       chores: [
         {
           title: "Pick Up Toys",
+          value: 0,
           complete: false,
           verified: false
         },
         {
           title: "Brush Teeth",
+          value: 0,
           complete: false,
           verified: false
         }
@@ -46,19 +52,23 @@ export class UserDataService {
       id: "3",
       name: "Tatyana",
       gender: "f",
+      balance: 0,
       chores: [
         {
           title: "Wash Clothes",
+          value: 0,
           complete: false,
           verified: false
         },
         {
           title: "Clean Room",
+          value: 0,
           complete: false,
           verified: false
         },
         {
           title: "Clean Bathroom",
+          value: 0,
           complete: false,
           verified: false
         }
@@ -68,24 +78,29 @@ export class UserDataService {
       id: "4",
       name: "Cameron",
       gender: "m",
+      balance: 0,
       chores: [
         {
           title: "Feed Dogs",
+          value: 0,
           complete: false,
           verified: false
         },
         {
           title: "Vacuum Carpet",
+          value: 0,
           complete: false,
           verified: false
         },
         {
           title: "Straighten Family Room",
+          value: 0,
           complete: false,
           verified: false
         },
         {
           title: "Put Shoes Away",
+          value: 0,
           complete: false,
           verified: false
         }
@@ -100,6 +115,7 @@ export class UserDataService {
         id: "5",
         name: name,
         gender: gender,
+        balance: 0,
         chores: [],
       })
   }
@@ -136,7 +152,7 @@ export class UserDataService {
   }
 
   addChore(name, id){
-    this.getUserByID(id).chores.push({title: name, complete:false, verified:false})
+    this.getUserByID(id).chores.push({title: name, value: 0, complete:false, verified:false})
   }
 
   removeChore(name, id) {
