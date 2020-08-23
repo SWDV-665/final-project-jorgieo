@@ -23,7 +23,7 @@
       </ion-item>
       <ion-item-options side="end">
 
-        <ion-button shape="round" color="success" (click)="markComplete(chore)" size="small">
+        <ion-button *ngIf="!chore.complete" shape="round" color="success" (click)="markComplete(chore)" size="small">
           <ion-icon name="checkmark-outline"></ion-icon>
         </ion-button>
         
