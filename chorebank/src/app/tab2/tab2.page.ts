@@ -17,11 +17,19 @@ export class Tab2Page {
     return this.userData.getUsers()
   }
 
-  async addUserDialog() {
+  async editAddUser(user, editMode) {
     const modal = await this.modalController.create({
-      component: ModalFormComponent
+      component: ModalFormComponent,
+      componentProps: {
+        user: user,
+        mode: editMode
+      }
     })
     await modal.present()
+  }
+
+  removeUser(user) {
+    this.userData.removeUser(user);
   }
 
 }

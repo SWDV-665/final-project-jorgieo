@@ -3,7 +3,7 @@
     <ion-title>
       Manage Users
     </ion-title>
-    <ion-button shape="round" slot="end" color="success" (click)="addUserDialog()">
+    <ion-button shape="round" slot="end" color="success" (click)="editAddUser(user, false)">
       <ion-icon name="add-circle-outline"></ion-icon>
     </ion-button>
   </ion-toolbar>
@@ -15,10 +15,10 @@
       <ion-label>
         <h3>{{user.name}}</h3>
       </ion-label>
-      <ion-button shape="round" color="warning">
+      <ion-button shape="round" color="warning" (click)="editAddUser(user, true)">
         <ion-icon name="create-outline"></ion-icon>
       </ion-button>
-      <ion-button shape="round" color="danger">
+      <ion-button shape="round" color="danger" (click)="removeUser(user)">
         <ion-icon name="trash-bin-outline"></ion-icon>
       </ion-button>
     </ion-item>

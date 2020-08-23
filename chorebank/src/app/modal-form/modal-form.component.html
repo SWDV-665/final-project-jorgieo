@@ -1,8 +1,15 @@
 <ion-header>
   <ion-toolbar>
-  <ion-title>
-    Add User
+
+  <ion-title *ngIf="modalMode; else addHeader">
+    Edit User
   </ion-title>
+  <ng-template #addHeader>
+    <ion-title>
+      Add User
+    </ion-title>
+  </ng-template>
+
   </ion-toolbar>
 </ion-header>
 
@@ -13,10 +20,11 @@
           <ion-label position="floating" >Name</ion-label>
           <ion-input placeholder="Name" name="userName" [(ngModel)]="userName" required></ion-input>
         </ion-item>
+        
         <div class="ion-text-center" *ngIf="nameIsEmpty"><p>Must enter a Name!</p></div>
       
         <ion-list>
-          <ion-radio-group value="m" (ionChange)="setSelectedGender($event)">
+          <ion-radio-group [(value)]="selectedGender" (ionChange)="radioChange($event)">
             <ion-list-header>
               <ion-label>Gender</ion-label>
             </ion-list-header>
@@ -35,9 +43,11 @@
       
       <ion-item>
         <ion-button (click)="cancelModal()" slot="start">Cancel</ion-button>
-        <ion-button (click)="addUser()" slot="end">Add</ion-button>
+        <ion-button *ngIf="!modalMode" (click)="addUser()" slot="end">Add</ion-button>
+        <ion-button *ngIf="modalMode" (click)="editUser()" slot="end">Edit</ion-button>
       </ion-item>
 
     </form>
+    <!-- <p>{{selectedUser | json}}</p> -->
   </ion-card>
 </ion-content>

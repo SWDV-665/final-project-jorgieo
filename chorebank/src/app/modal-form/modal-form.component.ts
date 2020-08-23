@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavParams } from '@ionic/angular';
 import { UserDataService } from '../user-data.service';
 
 @Component({
@@ -9,13 +9,21 @@ import { UserDataService } from '../user-data.service';
 })
 export class ModalFormComponent implements OnInit {
 
-  constructor(private modalController: ModalController, private userData:UserDataService) { }
+  constructor(private modalController: ModalController, private userData:UserDataService, private navParams: NavParams) { }
 
-  ngOnInit() {}
-
-  selectedGender: string = "m";
-  userName:string;
   nameIsEmpty:boolean;
+
+   ngOnInit() {}
+
+   selectedUser = this.navParams.get('user');
+   modalMode = this.navParams.get('mode');
+
+   userName = this.selectedUser? this.selectedUser.name : null
+   selectedGender = this.selectedUser? this.selectedUser.gender : 'f'
+
+   radioChange(event){
+     this.selectedGender = event.detail.value
+   }
 
   async cancelModal() {
     await this.modalController.dismiss()
@@ -26,13 +34,18 @@ export class ModalFormComponent implements OnInit {
       this.nameIsEmpty = true
       return
     }
-    console.log("User added",this.userName, this.selectedGender)
     this.userData.addUser(this.userName, this.selectedGender)
     await this.modalController.dismiss()
   }
 
-  setSelectedGender(event) {
-    this.selectedGender = event.detail.value;
+  
+  async editUser() {
+    if (!this.userName) {
+      this.nameIsEmpty = true
+      return
+    }
+    this.userData.editUser(this.userName, this.selectedGender, this.selectedUser.id)
+    await this.modalController.dismiss()
   }
 
 }
