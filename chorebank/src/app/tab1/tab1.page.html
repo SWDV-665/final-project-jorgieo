@@ -26,10 +26,17 @@
       </ion-item>
     
       <ion-card-content>
-        <ion-item>
-          <ion-label>Complete:</ion-label>
-          <ion-badge slot="end"><h1>{{completePercentage(user)}}%</h1></ion-badge>
+        <ion-item *ngIf="user.chores.length > 0; else noChores">
+          <ion-label>Completed:</ion-label>
+          <ion-badge slot="end"><h1>{{getUnverifiedChores(user.id)}} of {{user.chores.length}}</h1></ion-badge>
         </ion-item>
+        <ng-template #noChores>
+          <ion-item class="ion-text-center" lines="none">
+            <ion-label>
+              <h2>No Chores Today. YAY!</h2>
+            </ion-label>
+          </ion-item>
+        </ng-template>
       </ion-card-content>
 
       <div class="ion-text-center" *ngIf="getUnverifiedChores(user.id) > 0">
