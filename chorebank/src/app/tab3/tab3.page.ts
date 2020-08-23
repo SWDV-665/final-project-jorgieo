@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { UserDataService } from '../user-data.service';
+import { PopoverController } from '@ionic/angular';
+import { CashoutPopoverComponent } from '../cashout-popover/cashout-popover.component';
 
 @Component({
   selector: 'app-tab3',
@@ -8,14 +10,20 @@ import { UserDataService } from '../user-data.service';
 })
 export class Tab3Page {
 
-  constructor(private userData:UserDataService) {}
+  constructor(private userData:UserDataService, private popoverController: PopoverController) {}
 
   loadUsers() {
     return this.userData.getUsers()
   }
 
-  cashOut() {
-    console.log("Cha-ching!")
+  async cashOut(user) {
+    const popover = await this.popoverController.create({
+      component: CashoutPopoverComponent,
+      componentProps: {
+        user: user
+      }
+    })
+    await popover.present()
   }
 
 }

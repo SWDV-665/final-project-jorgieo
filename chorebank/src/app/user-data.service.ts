@@ -190,4 +190,8 @@ export class UserDataService {
     user.balance += verifiedChore.value;
     this.removeChore(verifiedChore, id);
   }
+  withdrawFromBank(cash, id) {
+    let user = this.getUserByID(id);
+    user.balance -= cash;
+  }
 }

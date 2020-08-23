@@ -19,20 +19,11 @@
         <h1 class="balance-amount">{{user.balance}}</h1>
       </div>
 
-      <!-- Using ion-grid to center ion-button within ion-item -->
-      <ion-item>
-        <ion-grid>
-          <ion-row>
-            <ion-col></ion-col>
-            <ion-col>
-              <ion-button (click)="cashOut()">
-                Cashout
-              </ion-button>
-            </ion-col>
-            <ion-col></ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-item>
+      <ion-card-content *ngIf="user.balance > 0">
+        <ion-button expand="full" shape="round" (click)="cashOut(user)">
+          Cashout
+        </ion-button>
+      </ion-card-content>
 
     </ion-card>
   </ion-list>
