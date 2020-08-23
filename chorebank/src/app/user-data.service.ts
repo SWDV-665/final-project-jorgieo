@@ -110,14 +110,23 @@ export class UserDataService {
   ]
 
   addUser(name:string, gender:string) {
+    let userIDs = [];
+    this.users.forEach(user => userIDs.push(parseInt(user.id)))
+    let newID = Math.max(...userIDs) + 1;
     this.users.push(
       {
-        id: "5",
+        id: `${newID}`,
         name: name,
         gender: gender,
         balance: 0,
         chores: [],
       })
+  }
+
+  editUser(name:string, gender:string, id:string) {
+    let user = this.getUserByID(id);
+    user.name = name;
+    user.gender = gender;
   }
 
   getUsers() {
@@ -126,6 +135,15 @@ export class UserDataService {
 
   getUserByID(id) {
     return this.users.find(user => user.id === id)
+  }
+
+  removeUser(user) {
+    for(var index = 0; index < this.users.length; index++) {
+      if (this.users[index].name === user.name) {
+        this.users.splice(index, 1)
+      };
+    }
+    
   }
 
   getPercentComplete(user) {
