@@ -1,7 +1,8 @@
 {
   "name": "chorebank",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }
