@@ -28,7 +28,7 @@
       <ion-card-content>
         <ion-item *ngIf="user.chores.length > 0; else noChores">
           <ion-label>Completed:</ion-label>
-          <ion-badge slot="end"><h1>{{getUnverifiedChores(user.id)}} of {{user.chores.length}}</h1></ion-badge>
+          <ion-badge color="success" slot="end"><h1>{{getUnverifiedChores(user.id)}} of {{user.chores.length}}</h1></ion-badge>
         </ion-item>
         <ng-template #noChores>
           <ion-item class="ion-text-center" lines="none">
